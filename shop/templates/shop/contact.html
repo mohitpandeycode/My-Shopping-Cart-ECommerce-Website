@@ -1,0 +1,48 @@
+{% extends 'shop/basic.html' %}
+{% block title %} ContactUs - My Awesome Cart  {% endblock %}
+
+{% block style %}
+  .required {
+    color: red;
+    font-weight: bold;
+  }
+{% endblock %}
+
+{% block body %}
+<div class="container my-5">
+    <h2>Contact Us -How can I help you </h2>
+        <form action="/shop/contact/" method="POST">
+            {% csrf_token %}
+
+<div class="mb-3 col-5">
+  <label for="name" class="form-label"><span class="required">*</span>Name</label>
+  <input type="text" class="form-control" name="name"  id="name" placeholder="Enter your name..."required>
+</div>
+
+<div class="mb-3 col-5">
+  <label for="email" class="form-label"><span class="required">*</span>Email address</label>
+  <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email..."required>
+</div>
+
+    <div class="mb-3 col-5">
+  <label for="phone" class="form-label"><span class="required">*</span>Phone No.</label>
+  <input type="tel" class="form-control" name="phone" id="phone" placeholder="Enter your Phone No..."required>
+</div>
+
+    <div class="mb-3 col-10">
+  <label for="desc" class="form-label"><span class="required">*</span>Whats your query please explain ?</label>
+  <textarea class="form-control" name="desc" id="desc" rows="5"required></textarea>
+</div>
+<button type="Submit" class="btn btn-danger">Submit</button>
+        </form>
+</div>
+{% endblock %}
+  {% block js %}
+<script>
+    {% if done %}
+        alert("Thank you for contacting us📞 . We received your message ✉️ and our team has already started working on it. We are contact you via email soon.......]");
+        document.location = "/shop";
+    {% endif %}
+</script>
+
+{% endblock %}

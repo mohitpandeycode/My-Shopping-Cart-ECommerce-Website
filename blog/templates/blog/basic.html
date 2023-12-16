@@ -1,0 +1,95 @@
+<!-- this is the example of using template inheritence meance we can make template in one place then inherit in all the html files -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>{% block title%} {% endblock %}</title>   <!-- using this to create title in any html file  -->
+     <style>
+       .navbar-brand{
+           padding: 10px 10px 10px 10px;
+            background: #367011;
+            color: black;
+            border-color : white;
+            border-radius: 20px;
+            transition: all linear 0.5s;
+       }
+        .navbar-brand:hover {
+            transform: translate(0px, -6px);
+            box-shadow: 2px 2px 5px 5px #0ff;
+        }
+        .nav-link{
+        margin-top :15px;
+        margin-left :10px;
+        }
+        .nav-link:hover {
+            transform: translate(0px, -6px);
+            box-shadow: 2px 1px 1px 1px orange;
+             border-radius: 20px;
+            transition: all linear 0.2s;
+        }
+
+       {% block style %} {% endblock %}
+  </style>   <!-- we can use this loaders where we can input diffrent in diffrent html files-->
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">My Shopping Cart</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/shop/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/shop/tracker">Track-Item</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/shop/about">About Us</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/blog">Blog</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="/shop/contact">Contact Us</a>
+      </li>
+
+
+
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+    <button type="button" class="btn btn-secondary mx-2" id="popcart" data-bs-container="body" data-toggle="popover" data-placement="bottom" data-html="true" data-content="Bottom popover">
+      Cart(<span id="cart">0</span>)
+</button>
+
+  </div>
+</nav>
+  {% block body %} {% endblock %}
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+   {% block js %} {% endblock %}
+
+  </body>
+</html>
